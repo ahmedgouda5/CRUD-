@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <!-- ^========|> Favicon  -->
+    <link rel="icon" href="./assets/imgs/favicon.png" />
+    <!-- ^========|> Lora Font  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- *========|> Font awesome library -->
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <!-- *========|> Bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <!-- *========|> Main stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <main class="py-4">
+      <div class="container">
+        <h1 class="text-center h2 mb-4">Product Management System</h1>
+        <form>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="ex: Oppo A23"
+              autocomplete="off"
+              oninput="validate(this, nameRegex)"
+            />
+            <label for="name">Name</label>
+            <div class="error d-none">
+              Name must start with Capital letter followed by 3 characters or
+              more
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="category"
+              placeholder="ex: mobile"
+              list="categories"
+              autocomplete="off"
+              oninput="validate(this, nameRegex)"
+            />
+            <label for="category">Category</label>
+            <div class="error d-none">
+              Category must start with Capital letter followed by 3 characters
+              or more
+            </div>
+
+            <datalist id="categories">
+              <option value="Screen"></option>
+              <option value="Mobile"></option>
+              <option value="Laptop"></option>
+              <option value="Camera"></option>
+              <option value="Clothes"></option>
+            </datalist>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              placeholder="ex: 5000"
+              oninput="validate(this, priceRegex)"
+            />
+            <label for="price">Price</label>
+            <div class="error d-none">
+              Price must be greater than 0 and less than 100$
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              class="form-control"
+              id="description"
+              placeholder="ex: 5000"
+              oninput="validate(this, descriptionRegex)"
+            ></textarea>
+            <label for="description">Description</label>
+
+            <div class="error d-none">
+              Descripton should be at least 25 character and at most 100
+              character
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="file"
+              class="form-control"
+              id="imageInput"
+              accept="image/*"
+            />
+            <div id="imgSrcContainer" class="d-none">
+              <i class="fa-solid fa-link"></i>
+              <span id="imgSrc"></span>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="addBtn" type="button">
+            Add Product
+          </button>
+          <button class="btn btn-info d-none" id="updateBtn" type="button">
+            Update Product
+          </button>
+
+          <input
+            type="search"
+            class="form-control w-75 mx-auto mt-4"
+            placeholder="Search Products...."
+            id="searchInput"
+            autocomplete="off"
+            oninput="searchProducts()"
+          />
+        </form>
+
+        <section>
+          <div class="container mt-5">
+            <div
+              class="row products-container g-3"
+              id="productsContainer"
+            ></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- ?========|> Boostrap Js file -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- ?========|> Main Js File -->
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
